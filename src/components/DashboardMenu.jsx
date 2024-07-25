@@ -5,12 +5,15 @@ import './DashboardMenu.css';
 
 const DashboardMenu = () => {
     return (
-        <div className="dashboard-menu">
-            <Link to="/home" className="dashboard-menu-item">Home</Link>
-            <Link to="/volunteer" className="dashboard-menu-item">Volunteer</Link>
-            <Link to="/help" className="dashboard-menu-item">Help</Link>
-            <Link to="/profile" className="dashboard-menu-item">Profile</Link>
-        </div>
+        <nav className="dashboard-menu">
+            <ul>
+                <li><Link to="/home">Home</Link></li>
+                <li><Link to="/volunteer">Volunteer</Link></li>
+                <li><Link to="/help">Help</Link></li>
+                <li><Link to="/profile">Profile</Link></li>
+                <li><Link to="/task-log">Task Log</Link></li>
+            </ul>
+        </nav>
     );
 };
 

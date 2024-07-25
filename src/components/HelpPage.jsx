@@ -1,6 +1,5 @@
 // src/components/HelpPage.js
 import React, { useState } from 'react';
-import DashboardMenu from './DashboardMenu';
 import './HelpPage.css'; // Include your specific styles
 
 const HelpPage = ({ onNewRequest }) => {
@@ -18,7 +17,6 @@ const HelpPage = ({ onNewRequest }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onNewRequest({ ...form, id: Date.now() });
         setForm({
             location: '',
             urgency: 'low',
@@ -29,7 +27,6 @@ const HelpPage = ({ onNewRequest }) => {
 
     return (
         <div className="help-page">
-            <DashboardMenu />
             <h1>Request Help</h1>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">

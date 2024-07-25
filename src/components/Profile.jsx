@@ -1,12 +1,10 @@
 // src/components/Profile.js
 import React from 'react';
-import DashboardMenu from './DashboardMenu';
 import './Profile.css';
 
 const Profile = ({ name, location, profession, contact }) => {
     return (
         <div className="profile-container">
-            <DashboardMenu />
             <h1 className="profile-header">Profile</h1>
             <div className="profile-detail">
                 <label className="profile-label">Name:</label>

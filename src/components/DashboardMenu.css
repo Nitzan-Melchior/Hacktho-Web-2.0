@@ -1,12 +1,33 @@
 /* src/components/DashboardMenu.css */
 .dashboard-menu {
+    background-color: #f8f9fa; /* Optional: set a background color */
+    padding: 10px; /* Optional: add padding around the menu */
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    padding: 5px;
-    background-color: #007bff;
-    border-bottom: 1px solid #0056b3;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    align-items: center; /* Vertical alignment */
+    justify-content: center; /* Horizontal alignment */
+    height: 100px; /* Set a height if needed */
+    /* You can adjust height based on your specific needs */
+}
+
+.dashboard-menu ul {
+    list-style: none; /* Remove default list styling */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Display list items in a row */
+}
+
+.dashboard-menu li {
+    margin-right: 20px; /* Space between menu items */
+}
+
+.dashboard-menu a {
+    text-decoration: none; /* Remove default underline */
+    color: #007bff; /* Link color */
+    font-weight: bold; /* Optional: make text bold */
+}
+
+.dashboard-menu a:hover {
+    color: #0056b3; /* Link hover color */
 }
 
 .menu-item {
