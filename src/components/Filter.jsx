@@ -1,43 +1,56 @@
 // src/components/Filter.js
 import React, { useState } from 'react';
+import './Filter.css'; // Include CSS for styling if needed
 
-const Filter = ({ applyFilters }) => {
-    const [filters, setFilters] = useState({ location: '', category: '' });
+const Filter = ({ applyFilters, locations, categories }) => {
+    const [selectedLocation, setSelectedLocation] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState('');
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFilters({ ...filters, [name]: value });
+    const handleLocationChange = (e) => {
+        setSelectedLocation(e.target.value);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        applyFilters(filters);
+    const handleCategoryChange = (e) => {
+        setSelectedCategory(e.target.value);
+    };
+
+    const handleApplyFilters = () => {
+        applyFilters({
+            location: selectedLocation,
+            category: selectedCategory
+        });
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className="form-group">
+        <div className="filter-container">
+            <div className="filter-group">
                 <label htmlFor="location">Location:</label>
-                <input
-                    type="text"
+                <select
                     id="location"
-                    name="location"
-                    value={filters.location}
-                    onChange={handleChange}
-                />
+                    value={selectedLocation}
+                    onChange={handleLocationChange}
+                >
+                    <option value="">All Locations</option>
+                    {locations.map(location => (
+                        <option key={location} value={location}>{location}</option>
+                    ))}
+                </select>
             </div>
-            <div className="form-group">
+            <div className="filter-group">
                 <label htmlFor="category">Category:</label>
-                <input
-                    type="text"
+                <select
                     id="category"
-                    name="category"
-                    value={filters.category}
-                    onChange={handleChange}
-                />
+                    value={selectedCategory}
+                    onChange={handleCategoryChange}
+                >
+                    <option value="">All Categories</option>
+                    {categories.map(category => (
+                        <option key={category} value={category}>{category}</option>
+                    ))}
+                </select>
             </div>
-            <button type="submit">Apply Filters</button>
-        </form>
+            <button type="button" onClick={handleApplyFilters}>Apply Filters</button>
+        </div>
     );
 };
 

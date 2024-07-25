@@ -1,11 +1,22 @@
 // src/components/VolunteerPage.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DashboardMenu from './DashboardMenu';
 import Filter from './Filter';
 import './VolunteerPage.css';
 
 const VolunteerPage = ({ tasks }) => {
     const [filters, setFilters] = useState({ location: '', category: '' });
+    const [locations, setLocations] = useState([]);
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        // Extract unique locations and categories from tasks
+        const uniqueLocations = [...new Set(tasks.map(task => task.location))];
+        const uniqueCategories = [...new Set(tasks.map(task => task.category))];
+        
+        setLocations(uniqueLocations);
+        setCategories(uniqueCategories);
+    }, [tasks]);
 
     const applyFilters = (filters) => {
         setFilters(filters);
@@ -13,8 +24,8 @@ const VolunteerPage = ({ tasks }) => {
 
     const filteredTasks = tasks.filter(task => {
         return (
-            (filters.location === '' || task.location.includes(filters.location)) &&
-            (filters.category === '' || task.category.includes(filters.category))
+            (filters.location === '' || task.location === filters.location) &&
+            (filters.category === '' || task.category === filters.category)
         );
     });
 
@@ -22,7 +33,11 @@ const VolunteerPage = ({ tasks }) => {
         <div className="volunteer-page">
             <DashboardMenu />
             <h1>Available Tasks</h1>
-            <Filter applyFilters={applyFilters} />
+            <Filter
+                applyFilters={applyFilters}
+                locations={locations}
+                categories={categories}
+            />
             <div className="task-list">
                 {filteredTasks.length > 0 ? (
                     filteredTasks.map(task => (
