@@ -1,0 +1,50 @@
+/* src/components/VolunteerPage.css */
+.volunteer-page {
+    background-color: #f9f9f9; /* Light background for better readability */
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.filter-container {
+    width: 100%;
+    max-width: 800px; /* Center and limit the width of the filter section */
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff; /* White background for filter area */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+.task-list {
+    width: 100%;
+    max-width: 800px; /* Center and limit the width of the task list */
+    margin-top: 20px;
+}
+
+.task-item {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for task items */
+}
+
+.task-item p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #333;
+}
+
+.task-item strong {
+    color: #007bff; /* Highlight labels with a blue color */
+}
